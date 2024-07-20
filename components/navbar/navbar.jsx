@@ -1,3 +1,6 @@
+'use client'
+import React,{useState,useEffect} from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,17 +17,17 @@ import iconPlanning from '@/assets/images/icon-planning.svg'
 // component nav item dropdown
 function DropdownItem({detail}){
     return (
-        <Menu as={'div'} className={`text-[12px] relative 
+        <Menu as={'div'} className={`text-[12px] relative  
             w-auto`}>
             {/* button dropdown */}
-            <MenuButton className={`font-semibold  relative  w-[100px] text-[13px] justify-center h-full flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black`}>
+            <MenuButton className={`font-semibold  relative capitalize  text-[13px] justify-center h-full flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black`}>
                 {detail?.title}
                 <IoIosArrowDown className=""/>
             </MenuButton>
 
             {/* dropdown items */}
             <MenuItems
-            as="div" className={`absolute left-0 w-[200pxx] p-4 mt-3 flex flex-col gap-2 bg-white shadow-md rounded-md  `}>
+            as="div" className={`absolute left-0 w-[150px] capitalize p-4 mt-3 flex flex-col gap-2 bg-white shadow-md rounded-md  `}>
                 {
                     detail?.dropdown?.map((el,index)=>{
                         return (
@@ -47,7 +50,6 @@ function DropdownItem({detail}){
 }
 
 export function Navbar(){
-
     const navigasi = [
         {
             id:1,
@@ -115,7 +117,7 @@ export function Navbar(){
                 <section className="nav_bg_dark relative flex-1 h-full ">
                     <div className="_nav_items_container relative w-full h-full flex gap-1">
                         {/* nav items */}
-                        <section className="flex-1 w-full h-full flex gap-2  relative ">
+                        <section className="flex-1 w-full h-full flex gap-5  relative ">
                             {/* mapping nav items */}
                             {
                                 navigasi?.map((el,index)=>{
