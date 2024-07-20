@@ -9,6 +9,6 @@
 
 @layer components {
   .btn_auth{
-    @apply w-[95px] p-1 text-[13px] text-custom-medium-gray rounded-lg h-full font-medium transition-all duration-200;
+    @apply w-full p-1 text-[13px] text-custom-medium-gray rounded-lg h-[40px] font-medium transition-all duration-200 md:w-[95px] md:h-full;
   }
 }

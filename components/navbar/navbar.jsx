@@ -13,6 +13,7 @@ import iconCalendar from '@/assets/images/icon-calendar.svg'
 import iconReminders from '@/assets/images/icon-reminders.svg'
 import iconPlanning from '@/assets/images/icon-planning.svg'
 import iconBar from '@/assets/images/icon-menu.svg'
+import iconClose from '@/assets/images/icon-close-menu.svg'
 
 
 // component nav item dropdown
@@ -21,14 +22,15 @@ function DropdownItem({detail}){
         <Menu as={'div'} className={`text-[12px] relative  
             w-auto`}>
             {/* button dropdown */}
-            <MenuButton className={`font-semibold  relative capitalize  text-[13px] justify-center h-full flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black`}>
+            <MenuButton className={`font-semibold  relative w-full h-[40px] capitalize  text-[13px] justify-left  flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black md:w-auto md:justify-center md:h-full`}>
                 {detail?.title}
                 <IoIosArrowDown className=""/>
             </MenuButton>
 
             {/* dropdown items */}
             <MenuItems
-            as="div" className={`absolute left-0 w-[150px] capitalize p-4 mt-3 flex flex-col gap-2 bg-white shadow-md rounded-md  `}>
+            as="div" className={`relative w-full capitalize p-4   flex flex-col gap-2 bg-white   
+            md:absolute md:left-0 md:w-[150px] md:mt-3 md:rounded-md md:shadow-md`}>
                 {
                     detail?.dropdown?.map((el,index)=>{
                         return (
@@ -115,10 +117,18 @@ export function Navbar(){
                     snap
                 </Link>
                 {/* nav container items */}
-                <section className="nav_bg_dark relative flex-1 h-full border-2 border-red-500">
-                    <div className="_nav_items_container relative w-full h-full flex gap-1">
+                <section className="nav_bg_dark flex-1 left-0 top-0 fixed  z-[5] bg-black/85 w-full  h-full border-2 border-red-500 md:relative md:z-[1] max-md:flex max-md:justify-end md:bg-transparent">
+                    <div className="_nav_items_container relative bg-white flex gap-1 w-[250px]   border-cyan-500 h-full flex-col md:w-full md:flex-row md:bg-transparent  max-md:p-5 max-md:overflow-y-auto">
+
+                        {/* close sidebar */}
+                        <div className=" w-full h-[50px] flex justify-end md:w-[50px] md:h-full md:hidden ">
+                            <button className="">
+                                <Image src={iconClose} className=""/>
+                            </button>
+                        </div>
+
                         {/* nav items */}
-                        <section className="flex-1 w-full h-full flex gap-5  relative ">
+                        <section className="flex-1 w-full h-auto flex gap-x-5 gap-y-2  relative flex-col md:flex-row md:h-full ">
                             {/* mapping nav items */}
                             {
                                 navigasi?.map((el,index)=>{
@@ -126,7 +136,7 @@ export function Navbar(){
                                     <DropdownItem key={el.id} detail={el}/> 
                                     :
                                     (
-                                        <Link key={el.id} href={'/'} className={`font-semibold  relative  w-[70px] text-[13px]  h-full capitalize flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black`}>
+                                        <Link key={el.id} href={'/'} className={`font-semibold w-full relative  text-[13px] h-[40px]  capitalize flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black md:w-[70px] md:h-full `}>
                                          {el.title}
                                         </Link>
                                     )  
@@ -137,7 +147,7 @@ export function Navbar(){
 
 
                         {/* button action */}
-                        <section className="action_button h-full flex px-2 gap-3">
+                        <section className="action_button h-full flex px-2 gap-3 flex-col max-md:w-full md:h-full md:flex-row ">
                             {/* button login */}
                             <button className="btn_auth hover:text-custom-almost-black">
                                 Login
@@ -148,7 +158,6 @@ export function Navbar(){
                             </button>
                         </section>
                     </div>
-                   
                 </section>
                  
                     {/* toggle button */}
