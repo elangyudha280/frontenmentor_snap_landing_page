@@ -29,8 +29,8 @@ function DropdownItem({detail}){
 
             {/* dropdown items */}
             <MenuItems
-            as="div" className={`relative w-full capitalize p-4   flex flex-col gap-2 bg-white   
-            md:absolute md:left-0 md:w-[150px] md:mt-3 md:rounded-md md:shadow-md`}>
+            as="div" className={`relative w-full capitalize    flex flex-col gap-2 bg-white p-2
+            md:absolute md:left-0 md:w-[150px] md:p-4 md:mt-3 md:rounded-md md:shadow-md`}>
                 {
                     detail?.dropdown?.map((el,index)=>{
                         return (
@@ -109,7 +109,7 @@ export function Navbar(){
     ]
 
     return (
-        <nav className="relative top-0 left-0 w-full px-2 h-[55px] py-2 border-2 border-red-500">
+        <nav className="relative top-0 left-0 w-full px-2 h-[55px] py-2">
             {/*//! Container nav */}
             <section className="max-w-6xl h-full  mx-auto flex gap-x-4 ">
                 {/* title */}
@@ -117,7 +117,7 @@ export function Navbar(){
                     snap
                 </Link>
                 {/* nav container items */}
-                <section className="nav_bg_dark flex-1 left-0 top-0 fixed  z-[5] bg-black/85 w-full  h-full border-2 border-red-500 md:relative md:z-[1] max-md:flex max-md:justify-end md:bg-transparent">
+                <section className="nav_bg_dark flex-1 left-0 top-0 fixed  z-[5] bg-black/85 w-full  h-full  md:relative md:z-[1] max-md:flex max-md:justify-end md:bg-transparent">
                     <div className="_nav_items_container relative bg-white flex gap-1 w-[250px]   border-cyan-500 h-full flex-col md:w-full md:flex-row md:bg-transparent  max-md:p-5 max-md:overflow-y-auto">
 
                         {/* close sidebar */}
@@ -161,8 +161,10 @@ export function Navbar(){
                 </section>
                  
                     {/* toggle button */}
-                    <div className="w-[50px] h-full md:hidden grid place-items-center">
+                    <div className=" w-full h-full flex justify-end  border-2 self-end md:hidden md:w-[50px] md:justify-center">
+                           <button>
                             <Image src={iconBar}/>
+                           </button>
                     </div>
             </section>
         </nav>
