@@ -7,3 +7,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn_auth{
+    @apply w-[95px] p-1 text-[13px] text-custom-medium-gray rounded-lg h-full font-medium transition-all duration-200;
+  }
+}
