@@ -37,7 +37,7 @@ function DropdownItem({detail}){
                             <MenuItem key={el.idSub}>
                                 <Link href={'/'} className="group w-full h-full flex text-[13px] items-center gap-2 ">
                                     {
-                                    el.icon !== undefined && <div className="w-[20px] grid place-items-center"><Image src={el?.icon} className=""/> 
+                                    el.icon !== undefined && <div className="w-[20px] grid place-items-center"><Image alt="" src={el?.icon} className=""/> 
                                     </div>
                                     }
                                     <p className="h-full capitalize text-custom-medium-gray font-medium mt-1 group-hover:text-custom-almost-black" >{el.title}</p>
@@ -53,6 +53,7 @@ function DropdownItem({detail}){
 }
 
 export function Navbar(){
+    let [activeSideBar,serActiveSidebar] = useState(false)
     const navigasi = [
         {
             id:1,
@@ -109,26 +110,37 @@ export function Navbar(){
     ]
 
     return (
-        <nav className="relative top-0 left-0 w-full px-2 h-[55px] py-2">
+        <nav className="relative top-0 left-0 w-full px-5 h-[60px] py-3">
             {/*//! Container nav */}
             <section className="max-w-6xl h-full  mx-auto flex gap-x-4 ">
                 {/* title */}
                 <Link href='/' className="font-bold h-full flex items-center text-[2em]">
                     snap
                 </Link>
+
                 {/* nav container items */}
-                <section className="nav_bg_dark flex-1 left-0 top-0 fixed  z-[5] bg-black/85 w-full  h-full  md:relative md:z-[1] max-md:flex max-md:justify-end md:bg-transparent">
-                    <div className="_nav_items_container relative bg-white flex gap-1 w-[250px]   border-cyan-500 h-full flex-col md:w-full md:flex-row md:bg-transparent  max-md:p-5 max-md:overflow-y-auto">
+                <section className={
+                    `nav_bg_dark flex-1 left-0 top-0 fixed  z-[5] bg-black/85 w-full  h-full  md:relative md:z-[1] max-md:flex max-md:justify-end md:bg-transparent
+                    ${activeSideBar === false  && 'max-md:hidden'}
+                    `
+                }
+                onClick={()=>{serActiveSidebar(false)}}
+                >
+                    <div className="_nav_items_container relative bg-white flex gap-1 w-[250px]   border-cyan-500 h-full flex-col md:w-full md:flex-row md:bg-transparent  max-md:p-5 max-md:overflow-y-auto"
+                        onClick={(e)=>{e.stopPropagation()}}
+
+                    >
 
                         {/* close sidebar */}
                         <div className=" w-full h-[50px] flex justify-end md:w-[50px] md:h-full md:hidden ">
-                            <button className="">
-                                <Image src={iconClose} className=""/>
+                            <button className="" onClick={()=>{serActiveSidebar(false)}}>
+                                <Image alt="" src={iconClose} className=""/>
                             </button>
                         </div>
 
                         {/* nav items */}
-                        <section className="flex-1 w-full h-auto flex gap-x-5 gap-y-2  relative flex-col md:flex-row md:h-full ">
+                        <section className="flex-1 w-full h-auto flex gap-x-5 gap-y-2  relative flex-col md:flex-row md:h-full "
+                        >
                             {/* mapping nav items */}
                             {
                                 navigasi?.map((el,index)=>{
@@ -147,7 +159,8 @@ export function Navbar(){
 
 
                         {/* button action */}
-                        <section className="action_button h-full flex px-2 gap-3 flex-col max-md:w-full md:h-full md:flex-row ">
+                        <section className="action_button h-full flex px-2 gap-3 flex-col max-md:w-full md:h-full md:flex-row "
+                        >
                             {/* button login */}
                             <button className="btn_auth hover:text-custom-almost-black">
                                 Login
@@ -160,12 +173,12 @@ export function Navbar(){
                     </div>
                 </section>
                  
-                    {/* toggle button */}
-                    <div className=" w-full h-full flex justify-end  border-2 self-end md:hidden md:w-[50px] md:justify-center">
-                           <button>
-                            <Image src={iconBar}/>
+                {/* toggle button */}
+                <div className=" w-full h-full flex justify-end self-end md:hidden md:w-[50px] md:justify-center">
+                           <button onClick={()=>{serActiveSidebar(true)}}>
+                            <Image alt="" src={iconBar}/>
                            </button>
-                    </div>
+                </div>
             </section>
         </nav>
     )
