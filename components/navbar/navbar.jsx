@@ -12,6 +12,7 @@ import iconTodoList from '@/assets/images/icon-todo.svg'
 import iconCalendar from '@/assets/images/icon-calendar.svg'
 import iconReminders from '@/assets/images/icon-reminders.svg'
 import iconPlanning from '@/assets/images/icon-planning.svg'
+import iconBar from '@/assets/images/icon-menu.svg'
 
 
 // component nav item dropdown
@@ -114,7 +115,7 @@ export function Navbar(){
                     snap
                 </Link>
                 {/* nav container items */}
-                <section className="nav_bg_dark relative flex-1 h-full ">
+                <section className="nav_bg_dark relative flex-1 h-full border-2 border-red-500">
                     <div className="_nav_items_container relative w-full h-full flex gap-1">
                         {/* nav items */}
                         <section className="flex-1 w-full h-full flex gap-5  relative ">
@@ -147,7 +148,13 @@ export function Navbar(){
                             </button>
                         </section>
                     </div>
+                   
                 </section>
+                 
+                    {/* toggle button */}
+                    <div className="w-[50px] h-full md:hidden grid place-items-center">
+                            <Image src={iconBar}/>
+                    </div>
             </section>
         </nav>
     )
