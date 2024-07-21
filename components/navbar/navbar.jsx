@@ -112,7 +112,7 @@ export function Navbar(){
         },
     ]
     return (
-        <nav className="relative top-0 left-0 w-full px-5 h-[60px] py-3">
+        <nav className="fixed z-[4] bg-custom-almost-white top-0 left-0 w-full px-5 h-[60px] py-3">
             {/*//! Container nav */}
             <section className="max-w-6xl h-full  mx-auto flex gap-x-4 ">
                 {/* title */}

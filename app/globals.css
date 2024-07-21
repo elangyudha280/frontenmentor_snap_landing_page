@@ -15,3 +15,9 @@
     @apply font-semibold w-full relative  text-[13px] h-[40px]  capitalize flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black;
   }
 }
+
+@media screen and (max-height:600px){
+  .content_body{
+    @apply items-stretch h-auto py-[5em];
+  }
+}
