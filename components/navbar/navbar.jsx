@@ -54,6 +54,9 @@ function DropdownItem({detail}){
 
 export function Navbar(){
     let [activeSideBar,serActiveSidebar] = useState(false)
+    let [activeSideBarAnimation,setActiveSidebarAnimation] = useState(false)
+
+
     const navigasi = [
         {
             id:1,
@@ -124,16 +127,33 @@ export function Navbar(){
                     ${activeSideBar === false  && 'max-md:hidden'}
                     `
                 }
-                onClick={()=>{serActiveSidebar(false)}}
+                onClick={()=>{
+                    setActiveSidebarAnimation(false)
+                    setTimeout(() => {
+                    serActiveSidebar(false)
+                    }, 250);
+                }}
                 >
-                    <div className="_nav_items_container relative bg-white flex gap-1 w-[250px]   border-cyan-500 h-full flex-col md:w-full md:flex-row md:bg-transparent  max-md:p-5 max-md:overflow-y-auto"
+                    <div className={`
+                    _nav_items_container relative bg-white flex gap-1 w-[250px]   border-cyan-500 h-full flex-col md:w-full md:flex-row md:bg-transparent  max-md:p-5 max-md:overflow-y-auto
+                    max-md:transition-all max-md:duration-200  ease-show-sidebar
+                    ${
+                        activeSideBarAnimation ? 'max-md:translate-x-[0%]' : ' max-md:translate-x-[100%]'
+                    }
+                    `}
                         onClick={(e)=>{e.stopPropagation()}}
-
                     >
 
                         {/* close sidebar */}
                         <div className=" w-full h-[50px] flex justify-end md:w-[50px] md:h-full md:hidden ">
-                            <button className="" onClick={()=>{serActiveSidebar(false)}}>
+                            <button className="" 
+                                onClick={()=>{
+                                    setActiveSidebarAnimation(false)
+                                    setTimeout(() => {
+                                    serActiveSidebar(false)
+                                    }, 250);
+                                }}
+                            >
                                 <Image alt="" src={iconClose} className=""/>
                             </button>
                         </div>
@@ -175,7 +195,14 @@ export function Navbar(){
                  
                 {/* toggle button */}
                 <div className=" w-full h-full flex justify-end self-end md:hidden md:w-[50px] md:justify-center">
-                           <button onClick={()=>{serActiveSidebar(true)}}>
+                           <button          
+                           onClick={()=>{
+                             serActiveSidebar(true)
+                                setTimeout(() => {
+                                setActiveSidebarAnimation(true)
+                                }, 100);
+                            }}
+                             >
                             <Image alt="" src={iconBar}/>
                            </button>
                 </div>

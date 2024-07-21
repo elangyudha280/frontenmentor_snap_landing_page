@@ -13,6 +13,9 @@ module.exports = {
           'medium-gray': 'hsl(0, 0%, 41%)',
           'almost-black':' hsl(0, 0%, 8%)'
         }
+      },
+      transitionTimingFunction: {
+        'show-sidebar': 'cubic-bezier(.55,-0.52,.31,1.67)',
       }
     },
   },
