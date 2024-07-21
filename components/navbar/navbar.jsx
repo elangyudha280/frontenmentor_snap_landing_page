@@ -111,7 +111,6 @@ export function Navbar(){
             title:"about",
         },
     ]
-
     return (
         <nav className="relative top-0 left-0 w-full px-5 h-[60px] py-3">
             {/*//! Container nav */}
@@ -168,7 +167,7 @@ export function Navbar(){
                                     <DropdownItem key={el.id} detail={el}/> 
                                     :
                                     (
-                                        <Link key={el.id} href={'/'} className={`font-semibold w-full relative  text-[13px] h-[40px]  capitalize flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black md:w-[70px] md:h-full `}>
+                                        <Link key={el.id} href={'/'} className={`nav_item md:w-[70px] md:h-full `}>
                                          {el.title}
                                         </Link>
                                     )  
@@ -179,8 +178,7 @@ export function Navbar(){
 
 
                         {/* button action */}
-                        <section className="action_button h-full flex px-2 gap-3 flex-col max-md:w-full md:h-full md:flex-row "
-                        >
+                        <section className="action_button h-full flex px-2 gap-3 flex-col max-md:w-full md:h-full md:flex-row " >
                             {/* button login */}
                             <button className="btn_auth hover:text-custom-almost-black">
                                 Login

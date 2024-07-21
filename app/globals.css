@@ -11,4 +11,7 @@
   .btn_auth{
     @apply w-full p-1 text-[13px] text-custom-medium-gray rounded-lg h-[40px] font-medium transition-all duration-200 md:w-[95px] md:h-full;
   }
+  .nav_item{
+    @apply font-semibold w-full relative  text-[13px] h-[40px]  capitalize flex items-center gap-1 text-custom-medium-gray transition-all duration-300 hover:text-custom-almost-black;
+  }
 }
